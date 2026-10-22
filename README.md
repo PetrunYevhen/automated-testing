@@ -45,3 +45,15 @@ npm install
 | `npm run format`     | форматування (Prettier)                  |
 
 Пороги покриття: lines ≥ 80 %, branches ≥ 80 %, functions = 100 %.
+
+## Лабораторна робота № 2. Модульне тестування бізнес-логіки (Vitest)
+
+Варіант 9 — `applyGiftCard(total, cardBalance)`: часткова оплата подарунковою карткою, повертає `{ toPay, remaining }`; помилки `INVALID_TOTAL` і `INVALID_BALANCE`.
+
+| Файл                     | Призначення                                                                |
+| ------------------------ | -------------------------------------------------------------------------- |
+| `src/order.ts`           | розрахунок вартості замовлення та `applyGiftCard`                          |
+| `tests/order.test.ts`    | тести `calcSubtotal`, `calcDiscountRate`, `calcShipping`, `calcOrderTotal` |
+| `tests/giftCard.test.ts` | тести `applyGiftCard`                                                      |
+
+Пороги покриття піднято до: lines ≥ 90 %, branches ≥ 90 %, functions = 100 %.

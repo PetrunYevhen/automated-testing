@@ -17,8 +17,8 @@ export default defineConfig({
       include: ['src/**/*.ts'],
       // нижче цих значень прогін із покриттям завершується з помилкою
       thresholds: {
-        lines: 80,
-        branches: 80,
+        lines: 90,
+        branches: 90,
         // кожна функція модуля має бути викликана хоча б одним тестом
         functions: 100,
       },
