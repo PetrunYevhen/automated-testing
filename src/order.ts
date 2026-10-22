@@ -58,3 +58,25 @@ export function calcOrderTotal(
   const afterDiscount = round2(subtotal * (1 - rate));
   return round2(afterDiscount + calcShipping(afterDiscount));
 }
+
+export interface GiftCardResult {
+  /** Сума, яку лишається сплатити іншим способом. */
+  toPay: number;
+  /** Залишок на подарунковій картці після оплати. */
+  remaining: number;
+}
+
+export function applyGiftCard(
+  total: number,
+  cardBalance: number,
+): GiftCardResult {
+  if (!Number.isFinite(total) || total < 0) throw new Error('INVALID_TOTAL');
+  if (!Number.isFinite(cardBalance) || cardBalance < 0) {
+    throw new Error('INVALID_BALANCE');
+  }
+  const used = Math.min(total, cardBalance);
+  return {
+    toPay: round2(total - used),
+    remaining: round2(cardBalance - used),
+  };
+}
